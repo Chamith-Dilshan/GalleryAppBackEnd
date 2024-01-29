@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://chamith:MDM6DPrcrFX9vKlA@galleryappcluster.m3aovoh.mongodb.net/?retryWrites=true&w=majority
+      database: Images
