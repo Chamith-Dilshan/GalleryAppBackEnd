@@ -1,5 +1,5 @@
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://chamith:MDM6DPrcrFX9vKlA@galleryappcluster.m3aovoh.mongodb.net/?retryWrites=true&w=majority
-      database: Images
+      uri: mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_CLUSTER}/?retryWrites=true&w=majority
+      database: ${MONGO_DATABASE}
