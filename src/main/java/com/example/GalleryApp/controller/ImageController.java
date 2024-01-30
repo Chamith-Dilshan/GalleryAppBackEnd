@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/images")
@@ -27,8 +28,9 @@ public class ImageController {
     public Image updateImage(@RequestBody Image imageRequest){
         return service.updateImageName(imageRequest);
     }
-    @DeleteMapping("/{imageId}")
-    public String deleteImage(@PathVariable String imageId){
-        return service.deleteImageFromDB(imageId);
+    @DeleteMapping("/delete")
+    public String deleteImages(@RequestBody Map<String, List<String>> requestBody) {
+        List<String> imageIds = requestBody.get("imageIds");
+        return service.deleteImages(imageIds);
     }
 }

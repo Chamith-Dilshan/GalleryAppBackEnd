@@ -42,9 +42,18 @@ public class ImageService {
     }
 
     //Delete Image from DB
-    public String deleteImageFromDB(String imageId){
-        repository.deleteById(imageId);
-        return imageId+" Image deleted successfully";
-    }
+    public String deleteImages(List<String> imageIds) {
+        StringBuilder result = new StringBuilder();
 
+        for (String imageId : imageIds) {
+            try {
+                repository.deleteById(imageId);
+                result.append(imageId).append(" Image deleted successfully\n");
+            } catch (Exception e) {
+                result.append("Failed to delete ").append(imageId).append(". Error: ").append(e.getMessage()).append("\n");
+            }
+        }
+
+        return result.toString().trim();
+    }
 }
